@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Route, Routes, BrowserRouter } from 'react-router-dom'
 
 function App() {
   // set the global state of characters to be passed down to game component
