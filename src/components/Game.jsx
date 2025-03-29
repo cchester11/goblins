@@ -10,11 +10,11 @@ export default function Game() {
             health: 100,
             strength: 10,
             potions: {
-                        red: 3,
-                        green: 1,
-                        blue: 1,
-                        orange: 0
-            }
+                  red: 3,
+                  green: 1,
+                  blue: 1,
+                  orange: 0,
+            },
       });
       let [goblin, setGoblin] = useState({
             health: 0,
@@ -32,29 +32,60 @@ export default function Game() {
                               Home
                         </button>
                   </div>
-                  <div className="h-screen w-screen grid grid-cols-1 text-white">
+                  <div className="h-screen w-screen grid grid-cols-2 text-white">
                         {/* enemy container */}
-                        <div className="grid grid-cols-1 border-b-2 border-amber-300 mb-3">
+                        <div className="grid grid-cols-1 border-2 border-amber-300 m-3">
                               <div className="flex justify-center">
                                     Goblin Name
                               </div>
                               <div className="flex justify-center">
-                                    <img src="/goblin_1.png" alt="goblin" className="h-[60px] w-[60px]"/>
+                                    <img
+                                          src="/goblin_1.png"
+                                          alt="goblin"
+                                          className="h-[60px] w-[60px]"
+                                    />
                               </div>
                               <div className="flex justify-center">
                                     Goblin Health
                               </div>
                         </div>
                         {/* brian container */}
-                        <div className="grid grid-cols-1">
+                        <div className="grid grid-cols-1 border-2 border-amber-300 m-3">
+                              <div className="flex justify-center">Brian</div>
                               <div className="flex justify-center">
-                                    Brian
-                              </div>
-                              <div className="flex justify-center">
-                                    <img src='/brian.png' alt="Brian" className="h-[60px] w-[60px]" />
+                                    <img
+                                          src="/brian.png"
+                                          alt="Brian"
+                                          className="h-[60px] w-[60px]"
+                                    />
                               </div>
                               <div className="flex justify-center">
                                     Brian Health
+                              </div>
+                        </div>
+                        {/* text container */}
+                        <div className="grid grid-cols-1 border-2 border-amber-300 m-3">
+                              <div className="flex justify-center items-center">
+                                    <p>Game Text</p>
+                              </div>
+                        </div>
+                        {/* brians controls container */}
+                        <div className="grid grid-cols-2 border-2 border-amber-300 m-3 justify-between items-center align-middle">
+                              <div className="flex justify-center">
+                                    <button
+                                          type="button"
+                                          className="bg-amber-400 text-sm text-white hover:bg-amber-200 p-3 rounded-xl outline-2 outline-offset-2 outline-blue-500"
+                                    >
+                                          Attack
+                                    </button>
+                              </div>
+                              <div className="flex justify-center">
+                                    <button
+                                          type="button"
+                                          className="bg-amber-400 text-sm text-white hover:bg-amber-200 p-3 rounded-xl outline-2 outline-offset-2 outline-blue-500"
+                                    >
+                                          Potion
+                                    </button>
                               </div>
                         </div>
                   </div>
