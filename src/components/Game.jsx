@@ -14,11 +14,29 @@ export default function Game() {
                               Home
                         </button>
                   </div>
-                  <div className="h-screen w-screen grid grid-cols-1">
+                  <div className="h-screen w-screen grid grid-cols-1 m-3 text-white">
                         {/* enemy container */}
-                        <div>Goblin</div>
+                        <div className="grid grid-cols-1">
+                              <div className="flex justify-center">
+                                    Goblin Name
+                              </div>
+                              <div className="flex justify-center">
+                                    Goblin Image
+                              </div>
+                              <div className="flex justify-center">
+                                    Goblin Health
+                              </div>
+                        </div>
                         {/* brian container */}
-                        <div>Brian</div>
+                        <div className="grid grid-cols-1">
+                              <div className="flex justify-center">Brian</div>
+                              <div className="flex justify-center">
+                                    Brian Image
+                              </div>
+                              <div className="flex justify-center">
+                                    Brian Health
+                              </div>
+                        </div>
                   </div>
             </div>
       );
