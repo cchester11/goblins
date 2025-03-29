@@ -1,7 +1,25 @@
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { goblins, potions } from "../data";
 
 export default function Game() {
       const navigate = useNavigate();
+
+      // set the global state of characters to be passed down to game component
+      let [brian, setBrian] = useState({
+            health: 100,
+            strength: 10,
+            potions: {
+                        red: 3,
+                        green: 1,
+                        blue: 1,
+                        orange: 0
+            }
+      });
+      let [goblin, setGoblin] = useState({
+            health: 0,
+            strength: 0,
+      });
 
       return (
             <div>
@@ -21,7 +39,7 @@ export default function Game() {
                                     Goblin Name
                               </div>
                               <div className="flex justify-center">
-                                    Goblin Image
+                                    <img src="/goblin_1.png" alt="goblin" className="h-[60px] w-[60px]"/>
                               </div>
                               <div className="flex justify-center">
                                     Goblin Health
@@ -29,9 +47,11 @@ export default function Game() {
                         </div>
                         {/* brian container */}
                         <div className="grid grid-cols-1">
-                              <div className="flex justify-center">Brian</div>
                               <div className="flex justify-center">
-                                    Brian Image
+                                    Brian
+                              </div>
+                              <div className="flex justify-center">
+                                    <img src='/brian.png' alt="Brian" className="h-[60px] w-[60px]" />
                               </div>
                               <div className="flex justify-center">
                                     Brian Health
