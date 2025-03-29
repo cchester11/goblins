@@ -32,9 +32,9 @@ export default function Game() {
                               Home
                         </button>
                   </div>
-                  <div className="h-screen w-screen grid grid-cols-1 m-3 text-white">
+                  <div className="h-screen w-screen grid grid-cols-1 text-white">
                         {/* enemy container */}
-                        <div className="grid grid-cols-1">
+                        <div className="grid grid-cols-1 border-b-2 border-amber-300 mb-3">
                               <div className="flex justify-center">
                                     Goblin Name
                               </div>
