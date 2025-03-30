@@ -21,10 +21,16 @@ export default function Game() {
                   orange: 0,
             },
       });
+
       let [goblin, setGoblin] = useState({
             health: 0,
             strength: [0,0,0],
       });
+
+      // isActive will be passed to components to ensure that the game runs in a cyclical fashion
+      let isActive = useState(false);
+
+      // useEffect to start the game; use empty array as second parameter to ensure the useEffect only occurs on mount
 
       return (
             <div>
