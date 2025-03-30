@@ -1,4 +1,4 @@
-// handle potion imports the potions array and brians state
+// handle potion imports the potions array and brians state; is used to give Brian a potion after each defeat
 export default function handlePotion () {
       // handlePotion should first select a random object in the array
 

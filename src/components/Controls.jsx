@@ -1,3 +1,5 @@
+// handleAttack function should be imported here and used in onClick listener in attack button
+// handleUsePotion function should be imported here and used in onClick listener in potion button
 export default function Controls() {
       return (
             <div className="grid grid-cols-2 border-2 border-amber-300 m-3 justify-between items-center align-middle">
