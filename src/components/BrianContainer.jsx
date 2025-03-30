@@ -15,7 +15,7 @@ export default function BrianContainer({ brian }) {
                   <div className="flex justify-center">
                         Health: {brian.health}
                   </div>
-                  <div className="grid grid-cols-4 justify-center items-center ml-3">
+                  <div className="grid grid-cols-4 justify-center items-center ml-10">
                         <div>
                               <img src="/potion_red.png" alt="red potion" />
                               <span>{brian.potions.red}</span>

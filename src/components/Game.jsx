@@ -28,8 +28,10 @@ export default function Game() {
       });
 
       let [goblin, setGoblin] = useState({
+            name: "",
             health: 0,
             strength: [0, 0, 0],
+            image: ""
       });
 
       // goblin index is a number that increments each time a goblin is defeated; it will be used to fetch the corresponding goblin object in the goblins array
@@ -58,6 +60,15 @@ export default function Game() {
                         }, 3000)
                   }, 1000)
             }, 3000)
+
+            // place startGame function here
+            // startGame function will start at goblinIdx, which is zero, to fetch the first goblin object
+            // it will then call the handleAttack function which prompts brian to fight or use potion in which case the handleUsePotion function is run
+            // after this the goblinTurn function runs
+            // at this point, a conditional checks the health of both brian and goblin to determine whether to increment to next goblin or end the game if brian is dead
+            // if goblin is dead, call the handlePotion function which will grab a random potion from the potions array that brian can add to his array of potions
+            // if goblin is not dead, the handleAttack function is called again and then the goblinTurn function
+            // begin the process again
       }, []);
 
       return (

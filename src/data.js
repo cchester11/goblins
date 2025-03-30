@@ -2,27 +2,32 @@ export const goblins = [
       {
             name: "Greesh",
             health: 35,
-            strength: [3, 4, 5]
+            strength: [3, 4, 5],
+            image: "/goblin_1.png"
       },
       {
             name: "Malloric",
             health: 45,
-            strength: [4, 6, 8]
+            strength: [4, 6, 8],
+            image: "/goblin_2.png"
       },
       {
             name: "Hecta",
             health: 50,
-            strength: [5, 7, 9]
+            strength: [5, 7, 9],
+            image: "goblin_3.png"
       },
       {
             name: "Kenessuk",
             health: 65,
-            strength: [7, 9, 13]
+            strength: [7, 9, 13],
+            image: "goblin_4.png"
       },
       {
             name: "Balrog Tamer, Gorak",
             health: 99,
-            strength: [11, 18, 22]
+            strength: [11, 18, 22],
+            image: "goblin_5.png"
       }
 ]
 
