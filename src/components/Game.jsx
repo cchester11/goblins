@@ -45,7 +45,7 @@ export default function Game() {
                   </div>
                   <div className="h-screen w-screen grid grid-cols-2 text-white">
                         {/* enemy container */}
-                        <EnemyContainer />
+                        <EnemyContainer goblin={goblin} />
                         {/* brian container */}
                         <BrianContainer brian={brian} />
                         {/* text container */}
