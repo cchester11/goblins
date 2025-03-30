@@ -32,6 +32,9 @@ export default function Game() {
             strength: [0, 0, 0],
       });
 
+      // goblin index is a number that increments each time a goblin is defeated; it will be used to fetch the corresponding goblin object in the goblins array
+      let [goblinIdx, setGoblinIdx] = useState(0);
+
       // isActive will be passed to components to ensure that the game runs in a cyclical fashion
       let [isActive, setIsActive] = useState(false);
 
