@@ -43,32 +43,54 @@ export default function Game() {
       // Game text
       let [gameText, setGameText] = useState("");
 
-      // useEffect to start the game; use empty array as second parameter to ensure the useEffect only occurs on mount
-      useEffect(() => {
-            setGameText(
-                  "Brian courageously goes forth against a hord of goblin foes!"
-            );
-
+      // showIntroMessages function
+      const showIntroMessages = () => {
             setTimeout(() => {
-                  setGameText("")
-
                   setTimeout(() => {
-                        setGameText("Let the Battles Begin!")
-
+                        setGameText(
+                              "Brian courageously goes forth against a hord of goblin foes!"
+                        );
                         setTimeout(() => {
                               setGameText("")
-                        }, 3000)
-                  }, 1000)
-            }, 3000)
+      
+                              setTimeout(() => {
+                                    setGameText("Let the Battles Begin!")
+      
+                                    setTimeout(() => {
+                                          setGameText("")
 
-            // place startGame function here
-            // startGame function will start at goblinIdx, which is zero, to fetch the first goblin object
-            // it will then call the handleAttack function which prompts brian to fight or use potion in which case the handleUsePotion function is run
-            // after this the goblinTurn function runs
-            // at this point, a conditional checks the health of both brian and goblin to determine whether to increment to next goblin or end the game if brian is dead
-            // if goblin is dead, call the handlePotion function which will grab a random potion from the potions array that brian can add to his array of potions
-            // if goblin is not dead, the handleAttack function is called again and then the goblinTurn function
-            // begin the process again
+                                          setTimeout(() => {
+                                                startGame();
+                                          }, 1000)
+                                    }, 3000)
+                              }, 1000)
+                        }, 3000)
+                  }, 500)
+            }, 500)
+      };
+
+      const startGame = () => {
+            // function 1
+            // fetch goblin according to goblinIdx value
+            // return the respective goblin object
+            // set goblin state to returned goblin
+            
+            // function 2
+            // handleAttack or handleUsePotion (will depend on a prompt)
+
+            // function 3
+            // goblinTurn
+
+            // conditional checks health of goblin and brian
+            // if brian is dead, end game
+            // if goblin is dead, increment goblinIdx 1 and go back to function 1
+
+            // reiterate 2 and 3 and then conditional
+      };
+
+      // useEffect to start the game; use empty array as second parameter to ensure the useEffect only occurs on mount
+      useEffect(() => {
+            showIntroMessages();
       }, []);
 
       return (
