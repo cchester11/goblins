@@ -31,7 +31,7 @@ export default function Game() {
             name: "",
             health: 0,
             strength: [0, 0, 0],
-            image: ""
+            image: "",
       });
 
       // goblin index is a number that increments each time a goblin is defeated; it will be used to fetch the corresponding goblin object in the goblins array
@@ -51,22 +51,22 @@ export default function Game() {
                               "Brian courageously goes forth against a hord of goblin foes!"
                         );
                         setTimeout(() => {
-                              setGameText("")
-      
+                              setGameText("");
+
                               setTimeout(() => {
-                                    setGameText("Let the Battles Begin!")
-      
+                                    setGameText("Let the Battles Begin!");
+
                                     setTimeout(() => {
-                                          setGameText("")
+                                          setGameText("");
 
                                           setTimeout(() => {
                                                 startGame();
-                                          }, 1000)
-                                    }, 3000)
-                              }, 1000)
-                        }, 3000)
-                  }, 500)
-            }, 500)
+                                          }, 1000);
+                                    }, 3000);
+                              }, 1000);
+                        }, 3000);
+                  }, 500);
+            }, 500);
       };
 
       const startGame = () => {
@@ -74,9 +74,26 @@ export default function Game() {
             // fetch goblin according to goblinIdx value
             // return the respective goblin object
             // set goblin state to returned goblin
-            
+            const fetchGoblin = () => {
+                  const newGoblin = { ...goblins[goblinIdx] };
+                  setGoblin(newGoblin);
+            };
+
+            fetchGoblin();
+
             // function 2
-            // handleAttack or handleUsePotion (will depend on a prompt)
+            // write prompt to ask user to attack or use potion
+            // if attack, call handleAttack
+            // if use potion, call handleUsePotion
+            const handleBrianOptions = () => {
+                  setGameText(
+                        "Attack or Use Potion? (Select from the button options)"
+                  );
+
+                  setIsActive(true);
+            };
+
+            handleBrianOptions();
 
             // function 3
             // goblinTurn
@@ -112,7 +129,16 @@ export default function Game() {
                         {/* text container */}
                         <TextContainer gameText={gameText} />
                         {/* brians controls container */}
-                        <Controls />
+                        <Controls
+                              isActive={isActive}
+                              setIsActive={setIsActive}
+                              handleAttack={handleAttack}
+                              handlePotion={handlePotion}
+                              brian={brian}
+                              goblin={goblin}
+                              setBrian={setBrian}
+                              setGoblin={setGoblin}
+                        />
                   </div>
             </div>
       );
