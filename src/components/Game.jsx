@@ -1,6 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { goblins, potions } from "../data";
+import EnemyContainer from "./EnemyContainer";
+import BrianContainer from "./BrianContainer";
+import Controls from "./Controls";
+import TextContainer from "./TextContainer";
+import { goblinTurn, handleAttack, handlePotion } from "../lib";
 
 export default function Game() {
       const navigate = useNavigate();
@@ -34,60 +39,13 @@ export default function Game() {
                   </div>
                   <div className="h-screen w-screen grid grid-cols-2 text-white">
                         {/* enemy container */}
-                        <div className="grid grid-cols-1 border-2 border-amber-300 m-3">
-                              <div className="flex justify-center">
-                                    Goblin Name
-                              </div>
-                              <div className="flex justify-center">
-                                    <img
-                                          src="/goblin_1.png"
-                                          alt="goblin"
-                                          className="h-[60px] w-[60px]"
-                                    />
-                              </div>
-                              <div className="flex justify-center">
-                                    Goblin Health
-                              </div>
-                        </div>
+                        <EnemyContainer />
                         {/* brian container */}
-                        <div className="grid grid-cols-1 border-2 border-amber-300 m-3">
-                              <div className="flex justify-center">Brian</div>
-                              <div className="flex justify-center">
-                                    <img
-                                          src="/brian.png"
-                                          alt="Brian"
-                                          className="h-[60px] w-[60px]"
-                                    />
-                              </div>
-                              <div className="flex justify-center">
-                                    Brian Health
-                              </div>
-                        </div>
+                        <BrianContainer brian={brian} />
                         {/* text container */}
-                        <div className="grid grid-cols-1 border-2 border-amber-300 m-3">
-                              <div className="flex justify-center items-center">
-                                    <p>Game Text</p>
-                              </div>
-                        </div>
+                        <TextContainer />
                         {/* brians controls container */}
-                        <div className="grid grid-cols-2 border-2 border-amber-300 m-3 justify-between items-center align-middle">
-                              <div className="flex justify-center">
-                                    <button
-                                          type="button"
-                                          className="bg-amber-400 text-sm text-white hover:bg-amber-200 p-3 rounded-xl outline-2 outline-offset-2 outline-blue-500"
-                                    >
-                                          Attack
-                                    </button>
-                              </div>
-                              <div className="flex justify-center">
-                                    <button
-                                          type="button"
-                                          className="bg-amber-400 text-sm text-white hover:bg-amber-200 p-3 rounded-xl outline-2 outline-offset-2 outline-blue-500"
-                                    >
-                                          Potion
-                                    </button>
-                              </div>
-                        </div>
+                        <Controls />
                   </div>
             </div>
       );
