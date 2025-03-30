@@ -132,6 +132,7 @@ export default function Game() {
                         <Controls
                               isActive={isActive}
                               setIsActive={setIsActive}
+                              setGameText={setGameText}
                               handleAttack={handleAttack}
                               handlePotion={handlePotion}
                               brian={brian}
