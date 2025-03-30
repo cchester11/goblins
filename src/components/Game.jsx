@@ -5,7 +5,7 @@ import EnemyContainer from "./EnemyContainer";
 import BrianContainer from "./BrianContainer";
 import Controls from "./Controls";
 import TextContainer from "./TextContainer";
-import { goblinTurn, handleAttack, handlePotion } from "../lib";
+import { goblinTurn, handleAttack, handlePotion, handleUsePotion } from "../lib";
 
 export default function Game() {
       const navigate = useNavigate();
