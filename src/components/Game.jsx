@@ -1,11 +1,16 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { goblins, potions } from "../data";
 import EnemyContainer from "./EnemyContainer";
 import BrianContainer from "./BrianContainer";
 import Controls from "./Controls";
 import TextContainer from "./TextContainer";
-import { goblinTurn, handleAttack, handlePotion, handleUsePotion } from "../lib";
+import {
+      goblinTurn,
+      handleAttack,
+      handlePotion,
+      handleUsePotion,
+} from "../lib";
 
 export default function Game() {
       const navigate = useNavigate();
@@ -13,7 +18,7 @@ export default function Game() {
       // set the global state of characters to be passed down to game component
       let [brian, setBrian] = useState({
             health: 100,
-            strength: [8,9,10],
+            strength: [8, 9, 10],
             potions: {
                   red: 3,
                   green: 1,
@@ -24,13 +29,33 @@ export default function Game() {
 
       let [goblin, setGoblin] = useState({
             health: 0,
-            strength: [0,0,0],
+            strength: [0, 0, 0],
       });
 
       // isActive will be passed to components to ensure that the game runs in a cyclical fashion
-      let isActive = useState(false);
+      let [isActive, setIsActive] = useState(false);
+
+      // Game text
+      let [gameText, setGameText] = useState("");
 
       // useEffect to start the game; use empty array as second parameter to ensure the useEffect only occurs on mount
+      useEffect(() => {
+            setGameText(
+                  "Brian courageously goes forth against a hord of goblin foes!"
+            );
+
+            setTimeout(() => {
+                  setGameText("")
+
+                  setTimeout(() => {
+                        setGameText("Let the Battles Begin!")
+
+                        setTimeout(() => {
+                              setGameText("")
+                        }, 3000)
+                  }, 1000)
+            }, 3000)
+      }, []);
 
       return (
             <div>
@@ -49,7 +74,7 @@ export default function Game() {
                         {/* brian container */}
                         <BrianContainer brian={brian} />
                         {/* text container */}
-                        <TextContainer />
+                        <TextContainer gameText={gameText} />
                         {/* brians controls container */}
                         <Controls />
                   </div>
