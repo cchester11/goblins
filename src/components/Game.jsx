@@ -108,7 +108,7 @@ export default function Game() {
                               Home
                         </button>
                   </div>
-                  <div className="h-screen w-screen grid grid-cols-2 text-white">
+                  <div className="h-screen w-screen p-10 grid grid-cols-2 text-white text-lg">
                         {/* enemy container */}
                         <EnemyContainer
                               goblin={goblin}
