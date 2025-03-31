@@ -6,7 +6,7 @@ export default function BrianContainer({
       setIsAvailable,
       handleUsePotion,
       setGameText,
-      setGoblinActive
+      setGoblinActive,
 }) {
       return (
             <div className="grid grid-cols-1 border-2 border-amber-300 m-3">
@@ -40,7 +40,7 @@ export default function BrianContainer({
                                                                   health = vals.health,
                                                                   strength = vals.strength,
                                                                   potionsLeft = vals.potionsLeft,
-                                                                  text = vals.text
+                                                                  text = vals.text,
                                                             } = handleUsePotion(
                                                                   brian,
                                                                   color
@@ -66,7 +66,16 @@ export default function BrianContainer({
                                                                   false
                                                             );
 
-                                                            setGoblinActive(true);
+                                                            setGoblinActive(
+                                                                  true
+                                                            );
+
+                                                            // Wait for 3 seconds, then update the game text again
+                                                            setTimeout(() => {
+                                                                  setGameText(
+                                                                        "Click the Simulate button to simulate the goblin's attack!"
+                                                                  );
+                                                            }, 3000);
                                                       }
                                                 }}
                                           >

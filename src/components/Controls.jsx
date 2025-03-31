@@ -9,7 +9,7 @@ export default function Controls({
       setBrian,
       setGoblin,
       setIsAvailable,
-      setGoblinActive
+      setGoblinActive,
 }) {
       return (
             <div className="grid grid-cols-2 border-2 border-amber-300 m-3 justify-between items-center align-middle">
@@ -35,6 +35,13 @@ export default function Controls({
                                           setIsActive(false);
                                           // make goblin active to allow goblin attack
                                           setGoblinActive(true);
+
+                                          // Wait for 3 seconds, then update the game text again
+                                          setTimeout(() => {
+                                                setGameText(
+                                                      "Click the Simulate button to simulate the goblin's attack!"
+                                                );
+                                          }, 3000);
                                     }
                               }}
                         >
@@ -48,7 +55,9 @@ export default function Controls({
                               onClick={() => {
                                     if (isActive) {
                                           // setGameText to "choose one of Brians potions!"
-                                          setGameText("Choose a Potion from Brian's library!")
+                                          setGameText(
+                                                "Choose a Potion from Brian's library!"
+                                          );
                                           // use setPotion to toggle potionAvailable to true
                                           setIsAvailable(true);
                                           // set isActive back to false
