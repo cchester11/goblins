@@ -44,10 +44,7 @@ export default function Game() {
       // then the user will need to click a potion button
       // the chosen button will have a value that can set potionChoice.selection
       // this will be passed back to handleUsePotion
-      let [potionChoice, setPotion] = useState({
-            isAvailable: false,
-            selection: "",
-      });
+      let [isAvailable, setIsAvailable] = useState(false);
 
       // Game text
       let [gameText, setGameText] = useState("");
@@ -128,8 +125,10 @@ export default function Game() {
                         {/* brian container */}
                         <BrianContainer
                               brian={brian}
-                              setPotion={setPotion}
-                              potionChoice={potionChoice}
+                              setBrian={setBrian}
+                              isAvailable={isAvailable}
+                              setIsAvailable={setIsAvailable}
+                              handleUsePotion={handleUsePotion}
                         />
                         {/* text container */}
                         <TextContainer gameText={gameText} />
@@ -144,8 +143,7 @@ export default function Game() {
                               goblin={goblin}
                               setBrian={setBrian}
                               setGoblin={setGoblin}
-                              potionChoice={potionChoice}
-                              setPotion={setPotion}
+                              setIsAvailable={setIsAvailable}
                         />
                   </div>
             </div>

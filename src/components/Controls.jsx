@@ -8,8 +8,7 @@ export default function Controls({
       goblin,
       setBrian,
       setGoblin,
-      potionChoice,
-      setPotion
+      setIsAvailable
 }) {
       return (
             <div className="grid grid-cols-2 border-2 border-amber-300 m-3 justify-between items-center align-middle">
@@ -47,13 +46,8 @@ export default function Controls({
                                     if (isActive) {
                                           // setGameText to "choose one of Brians potions!"
                                           setGameText("Choose a Potion from Brian's library!")
-                                          // grab clicked potion and store in variable, send variable to handleUsePotion
-                                          // handleUsePotion
                                           // use setPotion to toggle potionAvailable to true
-                                          setPotion({
-                                                ...potionChoice,
-                                                isAvailable: true
-                                          })
+                                          setIsAvailable(true);
                                           // set isActive back to false
                                           setIsActive(false);
                                     }

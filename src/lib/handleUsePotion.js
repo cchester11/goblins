@@ -1,10 +1,28 @@
 // use as parameter brians potion state and selected potion
-export default function handleUsePotion () {
-      // if brians selected potion is red or green, add to his health the respective value
+export default function handleUsePotion (brian, color) {
+      if (color === "red") {
+            const health = Math.min(brian.health + 20, 100);
+            let potionsLeft = brian.potions.red;
 
-      // if brians selected potion is blue or orange, do some math to increase his array of strength values
+            potionsLeft = potionsLeft - 1;
 
-      // brians potion state subtracts from the selected color one potion
+            const vals = {
+                  health: health,
+                  potionsLeft: potionsLeft
+            }
 
-      // return brians potion state
+            return vals;
+      } else if (color === "green") {
+            const health = Math.min(brian.health + 25, 100);
+            let potionsLeft = brian.potions.green;
+
+            potionsLeft = potionsLeft - 1;
+
+            const vals = {
+                  health: health,
+                  potionsLeft: potionsLeft
+            }
+
+            return vals;
+      };
 };

@@ -1,5 +1,5 @@
 // import Brians state and pass as props
-export default function BrianContainer({ brian }) {
+export default function BrianContainer({ brian, setBrian, isAvailable, setIsAvailable, handleUsePotion }) {
       return (
             <div className="grid grid-cols-1 border-2 border-amber-300 m-3">
                   <div className="flex justify-center">Brian</div>
@@ -13,26 +13,44 @@ export default function BrianContainer({ brian }) {
                   <div className="flex justify-center">
                         Health: {brian.health}
                   </div>
-                  <div className="grid grid-cols-4 justify-center items-center ml-10">
-                        <button type="button" className="cursor-pointer">
-                              <img src="/potion_red.png" alt="red potion" />
-                              <span>{brian.potions.red}</span>
-                        </button>
-                        <button type="button" className="cursor-pointer">
-                              <img src="/potion_green.png" alt="green potion" />
-                              <span>{brian.potions.green}</span>
-                        </button>
-                        <button type="button" className="cursor-pointer">
-                              <img src="/potion_blue.png" alt="blue potion" />
-                              <span>{brian.potions.blue}</span>
-                        </button>
-                        <button type="button" className="cursor-pointer">
-                              <img
-                                    src="/potion_orange.png"
-                                    alt="orange potion"
-                              />
-                              <span>{brian.potions.orange}</span>
-                        </button>
+                  <div className="flex justify-center mt-4">
+                        <div className="grid grid-cols-4 gap-6">
+                              {["red", "green", "blue", "orange"].map(
+                                    (color) => (
+                                          <button
+                                                key={color}
+                                                type="button"
+                                                className="cursor-pointer inline-flex flex-col items-center justify-center w-20 h-20 rounded-lg bg-gray-800 border-2 border-gray-700 hover:border-white transition-transform duration-200 hover:scale-105 active:scale-95 shadow-md"
+                                                onClick={() => {
+                                                      if(isAvailable) {
+                                                            const { health, potionsLeft } = handleUsePotion(brian, color);
+
+                                                            setBrian((prevBrian) => ({
+                                                                  ...prevBrian,
+                                                                  health: health,
+                                                                  potions: {
+                                                                        ...prevBrian.potions,
+                                                                        [color]: potionsLeft
+                                                                  }
+                                                            }))
+
+                                                            setIsAvailable(false);
+                                                      }
+                                                }}
+                                          >
+                                                <img
+                                                      src={`/potion_${color}.png`}
+                                                      alt={`${color} potion`}
+                                                      className="h-12 w-12 transition-all duration-200 hover:drop-shadow-md"
+                                                />
+                                                <span className="text-sm font-medium mt-1">
+                                                      {brian.potions?.[color] ??
+                                                            0}
+                                                </span>
+                                          </button>
+                                    )
+                              )}
+                        </div>
                   </div>
             </div>
       );
