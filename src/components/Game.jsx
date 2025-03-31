@@ -11,6 +11,11 @@ import {
       handlePotion,
       handleUsePotion,
 } from "../lib";
+import {
+      fetchGoblin,
+      handleBrianOptions,
+      handleGoblinTurn
+} from "../utils";
 
 export default function Game() {
       const navigate = useNavigate();
@@ -76,25 +81,12 @@ export default function Game() {
       };
 
       const startGame = () => {
-            const fetchGoblin = () => {
-                  const newGoblin = { ...goblins[goblinIdx] };
-                  setGoblin(newGoblin);
-            };
 
-            fetchGoblin();
+            fetchGoblin(goblins, setGoblin, goblinIdx);
 
-            const handleBrianOptions = () => {
-                  setGameText(
-                        "Attack or Use Potion? (Select from the button options)"
-                  );
+            handleBrianOptions(setGameText, setIsActive);
 
-                  setIsActive(true);
-            };
-
-            handleBrianOptions();
-
-            // function 3
-            // goblinTurn
+            // handleGoblinTurn(brian, goblin, setBrian, setGameText);
 
             // conditional checks health of goblin and brian
             // if brian is dead, end game
