@@ -8,7 +8,8 @@ export default function Controls({
       goblin,
       setBrian,
       setGoblin,
-      setIsAvailable
+      setIsAvailable,
+      setGoblinActive
 }) {
       return (
             <div className="grid grid-cols-2 border-2 border-amber-300 m-3 justify-between items-center align-middle">
@@ -32,6 +33,8 @@ export default function Controls({
                                           });
                                           // set isActive back to false
                                           setIsActive(false);
+                                          // make goblin active to allow goblin attack
+                                          setGoblinActive(true);
                                     }
                               }}
                         >
@@ -50,6 +53,8 @@ export default function Controls({
                                           setIsAvailable(true);
                                           // set isActive back to false
                                           setIsActive(false);
+                                          // make goblin active to allow goblin attack
+                                          setGoblinActive(true);
                                     }
                               }}
                         >

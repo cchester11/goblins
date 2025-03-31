@@ -11,11 +11,7 @@ import {
       handlePotion,
       handleUsePotion,
 } from "../lib";
-import {
-      fetchGoblin,
-      handleBrianOptions,
-      handleGoblinTurn
-} from "../utils";
+import { fetchGoblin, handleBrianOptions, handleGoblinTurn } from "../utils";
 
 export default function Game() {
       const navigate = useNavigate();
@@ -51,6 +47,8 @@ export default function Game() {
       // this will be passed back to handleUsePotion
       let [isAvailable, setIsAvailable] = useState(false);
 
+      let [goblinActive, setGoblinActive] = useState(false);
+
       // Game text
       let [gameText, setGameText] = useState("");
 
@@ -81,7 +79,6 @@ export default function Game() {
       };
 
       const startGame = () => {
-
             fetchGoblin(goblins, setGoblin, goblinIdx);
 
             handleBrianOptions(setGameText, setIsActive);
@@ -113,7 +110,11 @@ export default function Game() {
                   </div>
                   <div className="h-screen w-screen grid grid-cols-2 text-white">
                         {/* enemy container */}
-                        <EnemyContainer goblin={goblin} />
+                        <EnemyContainer
+                              goblin={goblin}
+                              goblinActive={goblinActive}
+                              setGoblinActive={setGoblinActive}
+                        />
                         {/* brian container */}
                         <BrianContainer
                               brian={brian}
@@ -137,6 +138,7 @@ export default function Game() {
                               setBrian={setBrian}
                               setGoblin={setGoblin}
                               setIsAvailable={setIsAvailable}
+                              setGoblinActive={setGoblinActive}
                         />
                   </div>
             </div>
