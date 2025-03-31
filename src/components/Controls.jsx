@@ -1,7 +1,16 @@
-// handleAttack function should be imported here and used in onClick listener in attack button
-// handleUsePotion function should be imported here and used in onClick listener in potion button
-// should be passed brian and goblin state for the handleAttack function
-export default function Controls({ isActive, setIsActive, setGameText, handleAttack, handlePotion, brian, goblin, setBrian, setGoblin }) {
+export default function Controls({
+      isActive,
+      setIsActive,
+      setGameText,
+      handleAttack,
+      handleUsePotion,
+      brian,
+      goblin,
+      setBrian,
+      setGoblin,
+      potionChoice,
+      setPotion
+}) {
       return (
             <div className="grid grid-cols-2 border-2 border-amber-300 m-3 justify-between items-center align-middle">
                   <div className="flex justify-center">
@@ -9,12 +18,19 @@ export default function Controls({ isActive, setIsActive, setGameText, handleAtt
                               type="button"
                               className="bg-amber-400 text-sm text-white hover:bg-amber-200 p-3 rounded-xl outline-2 outline-offset-2 outline-blue-500"
                               onClick={() => {
-                                    if(isActive) {
+                                    if (isActive) {
                                           // handleAttack
-                                          const { goblinHealth, text } = handleAttack(brian.strength, goblin)
+                                          const { goblinHealth, text } =
+                                                handleAttack(
+                                                      brian.strength,
+                                                      goblin
+                                                );
                                           // set goblin health and game text
                                           setGameText(text);
-                                          setGoblin({ ...goblin, health: goblinHealth });
+                                          setGoblin({
+                                                ...goblin,
+                                                health: goblinHealth,
+                                          });
                                           // set isActive back to false
                                           setIsActive(false);
                                     }
@@ -28,10 +44,18 @@ export default function Controls({ isActive, setIsActive, setGameText, handleAtt
                               type="button"
                               className="bg-amber-400 text-sm text-white hover:bg-amber-200 p-3 rounded-xl outline-2 outline-offset-2 outline-blue-500"
                               onClick={() => {
-                                    if(isActive) {
+                                    if (isActive) {
+                                          // setGameText to "choose one of Brians potions!"
+                                          setGameText("Choose a Potion from Brian's library!")
+                                          // grab clicked potion and store in variable, send variable to handleUsePotion
                                           // handleUsePotion
-                                          
+                                          // use setPotion to toggle potionAvailable to true
+                                          setPotion({
+                                                ...potionChoice,
+                                                isAvailable: true
+                                          })
                                           // set isActive back to false
+                                          setIsActive(false);
                                     }
                               }}
                         >

@@ -40,6 +40,15 @@ export default function Game() {
       // isActive will be passed to components to ensure that the game runs in a cyclical fashion
       let [isActive, setIsActive] = useState(false);
 
+      // setPotion will be passed to controls which will set potionChoice to true
+      // then the user will need to click a potion button
+      // the chosen button will have a value that can set potionChoice.selection
+      // this will be passed back to handleUsePotion
+      let [potionChoice, setPotion] = useState({
+            isAvailable: false,
+            selection: "",
+      });
+
       // Game text
       let [gameText, setGameText] = useState("");
 
@@ -70,10 +79,6 @@ export default function Game() {
       };
 
       const startGame = () => {
-            // function 1
-            // fetch goblin according to goblinIdx value
-            // return the respective goblin object
-            // set goblin state to returned goblin
             const fetchGoblin = () => {
                   const newGoblin = { ...goblins[goblinIdx] };
                   setGoblin(newGoblin);
@@ -81,10 +86,6 @@ export default function Game() {
 
             fetchGoblin();
 
-            // function 2
-            // write prompt to ask user to attack or use potion
-            // if attack, call handleAttack
-            // if use potion, call handleUsePotion
             const handleBrianOptions = () => {
                   setGameText(
                         "Attack or Use Potion? (Select from the button options)"
@@ -125,7 +126,11 @@ export default function Game() {
                         {/* enemy container */}
                         <EnemyContainer goblin={goblin} />
                         {/* brian container */}
-                        <BrianContainer brian={brian} />
+                        <BrianContainer
+                              brian={brian}
+                              setPotion={setPotion}
+                              potionChoice={potionChoice}
+                        />
                         {/* text container */}
                         <TextContainer gameText={gameText} />
                         {/* brians controls container */}
@@ -134,11 +139,13 @@ export default function Game() {
                               setIsActive={setIsActive}
                               setGameText={setGameText}
                               handleAttack={handleAttack}
-                              handlePotion={handlePotion}
+                              handleUsePotion={handleUsePotion}
                               brian={brian}
                               goblin={goblin}
                               setBrian={setBrian}
                               setGoblin={setGoblin}
+                              potionChoice={potionChoice}
+                              setPotion={setPotion}
                         />
                   </div>
             </div>

@@ -14,25 +14,25 @@ export default function BrianContainer({ brian }) {
                         Health: {brian.health}
                   </div>
                   <div className="grid grid-cols-4 justify-center items-center ml-10">
-                        <div>
+                        <button type="button" className="cursor-pointer">
                               <img src="/potion_red.png" alt="red potion" />
                               <span>{brian.potions.red}</span>
-                        </div>
-                        <div>
+                        </button>
+                        <button type="button" className="cursor-pointer">
                               <img src="/potion_green.png" alt="green potion" />
                               <span>{brian.potions.green}</span>
-                        </div>
-                        <div>
+                        </button>
+                        <button type="button" className="cursor-pointer">
                               <img src="/potion_blue.png" alt="blue potion" />
                               <span>{brian.potions.blue}</span>
-                        </div>
-                        <div>
+                        </button>
+                        <button type="button" className="cursor-pointer">
                               <img
                                     src="/potion_orange.png"
                                     alt="orange potion"
                               />
                               <span>{brian.potions.orange}</span>
-                        </div>
+                        </button>
                   </div>
             </div>
       );
