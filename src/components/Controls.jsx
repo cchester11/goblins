@@ -33,6 +33,12 @@ export default function Controls({
                                           });
                                           // set isActive back to false
                                           setIsActive(false);
+
+                                          // conditional that houses the below logic
+                                          // checks if goblin is dead
+                                          // if goblin is dead, increment the goblinIdx state
+                                          // also if goblin is dead, use handlePotion logic to add a potion to brians library
+
                                           // make goblin active to allow goblin attack
                                           setGoblinActive(true);
 

@@ -26,6 +26,10 @@ export default function EnemyContainer({ brian, goblin, setBrian, setGameText, g
                                                 handleGoblinTurn(brian, goblin, setBrian, setGameText);
 
                                                 setGoblinActive(false);
+
+                                                // conditional here that checks health of brian
+                                                // if brian is dead, end game
+                                                // if not, set game text back to attack or use potion and set isActive to true to restart the process
                                           }
                                     }}
                               >
