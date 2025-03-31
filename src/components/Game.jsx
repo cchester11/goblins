@@ -114,6 +114,9 @@ export default function Game() {
                               goblin={goblin}
                               goblinActive={goblinActive}
                               setGoblinActive={setGoblinActive}
+                              brian={brian}
+                              setBrian={setBrian}
+                              setGameText={setGameText}
                         />
                         {/* brian container */}
                         <BrianContainer

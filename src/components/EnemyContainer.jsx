@@ -1,4 +1,6 @@
-export default function EnemyContainer({ goblin, goblinActive, setGoblinActive }) {
+import { handleGoblinTurn } from "../utils";
+
+export default function EnemyContainer({ brian, goblin, setBrian, setGameText, goblinActive, setGoblinActive }) {
       return (
             <div className="grid grid-cols-1 border-2 border-amber-300 m-3">
                   <div className="flex justify-center">
@@ -19,6 +21,13 @@ export default function EnemyContainer({ goblin, goblinActive, setGoblinActive }
                               <button
                                     type="button"
                                     className="bg-amber-400 text-sm text-white hover:bg-amber-200 p-3 rounded-xl outline-2 outline-offset-2 outline-blue-500"
+                                    onClick={() => {
+                                          if(goblinActive) {
+                                                handleGoblinTurn(brian, goblin, setBrian, setGameText);
+
+                                                setGoblinActive(false);
+                                          }
+                                    }}
                               >
                                     Simulate
                               </button>
