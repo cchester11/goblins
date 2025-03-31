@@ -53,8 +53,6 @@ export default function Controls({
                                           setIsAvailable(true);
                                           // set isActive back to false
                                           setIsActive(false);
-                                          // make goblin active to allow goblin attack
-                                          setGoblinActive(true);
                                     }
                               }}
                         >

@@ -126,6 +126,7 @@ export default function Game() {
                               setIsAvailable={setIsAvailable}
                               handleUsePotion={handleUsePotion}
                               setGameText={setGameText}
+                              setGoblinActive={setGoblinActive}
                         />
                         {/* text container */}
                         <TextContainer gameText={gameText} />
