@@ -18,7 +18,7 @@ export default function Game() {
 
       // set the global state of characters to be passed down to game component
       let [brian, setBrian] = useState({
-            health: 100,
+            health: 1,
             strength: [8, 9, 10],
             potions: {
                   red: 3,

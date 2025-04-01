@@ -1,6 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import { handleGoblinTurn } from "../utils";
+import { endGame } from '../lib';
 
 export default function EnemyContainer({ brian, goblin, setBrian, setGameText, goblinActive, setGoblinActive }) {
+      const navigate = useNavigate();
+
       return (
             <div className="grid grid-cols-1 border-2 border-amber-300 m-3">
                   <div className="flex justify-center">
@@ -29,6 +33,9 @@ export default function EnemyContainer({ brian, goblin, setBrian, setGameText, g
 
                                                 // conditional here that checks health of brian
                                                 // if brian is dead, end game
+                                                if(brian.health <= 0) {
+                                                      endGame(navigate);
+                                                }
                                                 // if not, set game text back to attack or use potion and set isActive to true to restart the process
                                           }
                                     }}
