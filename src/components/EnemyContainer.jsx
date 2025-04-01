@@ -14,7 +14,7 @@ export default function EnemyContainer({
       const navigate = useNavigate();
 
       return (
-            <div className="grid grid-cols-1 border-2 border-amber-300 m-3">
+            <div className="grid grid-cols-1 border-2 border-amber-300 bg-gray-800 text-white rounded-xl p-5 shadow-lg m-3">
                   <div className="flex justify-center">
                         {goblin.name || "Goblin Name"}
                   </div>
