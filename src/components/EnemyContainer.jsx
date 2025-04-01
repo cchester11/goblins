@@ -1,8 +1,16 @@
 import { useNavigate } from "react-router-dom";
 import { handleGoblinTurn } from "../utils";
-import { endGame } from '../lib';
+import { endGame } from "../lib";
 
-export default function EnemyContainer({ brian, goblin, setBrian, setGameText, goblinActive, setGoblinActive }) {
+export default function EnemyContainer({
+      brian,
+      goblin,
+      setBrian,
+      setGameText,
+      goblinActive,
+      setGoblinActive,
+      setIsActive,
+}) {
       const navigate = useNavigate();
 
       return (
@@ -26,17 +34,30 @@ export default function EnemyContainer({ brian, goblin, setBrian, setGameText, g
                                     type="button"
                                     className="bg-amber-400 text-sm text-white hover:bg-amber-200 p-3 rounded-xl outline-2 outline-offset-2 outline-blue-500"
                                     onClick={() => {
-                                          if(goblinActive) {
-                                                handleGoblinTurn(brian, goblin, setBrian, setGameText);
+                                          if (goblinActive) {
+                                                handleGoblinTurn(
+                                                      brian,
+                                                      goblin,
+                                                      setBrian,
+                                                      setGameText
+                                                );
 
                                                 setGoblinActive(false);
 
                                                 // conditional here that checks health of brian
                                                 // if brian is dead, end game
-                                                if(brian.health <= 0) {
+                                                if (brian.health <= 0) {
                                                       endGame(navigate);
+                                                } else {
+                                                      // if not, set game text back to attack or use potion and set isActive to true to restart the process
+                                                      setTimeout(() => {
+                                                            setGameText(
+                                                                  "Attack or Use Potion? (Select from the button options)"
+                                                            );
+
+                                                            setIsActive(true);
+                                                      }, 3500);
                                                 }
-                                                // if not, set game text back to attack or use potion and set isActive to true to restart the process
                                           }
                                     }}
                               >
