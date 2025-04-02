@@ -143,6 +143,7 @@ export default function Game() {
                               setGoblinIdx={setGoblinIdx}
                               goblinIdx={goblinIdx}
                               goblins={goblins}
+                              setBrian={setBrian}
                         />
                   </div>
             </div>

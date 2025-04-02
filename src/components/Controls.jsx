@@ -1,9 +1,12 @@
+import { handlePotion } from "../lib";
+
 export default function Controls({
       isActive,
       setIsActive,
       setGameText,
       handleAttack,
       brian,
+      setBrian,
       goblin,
       setGoblin,
       setIsAvailable,
@@ -42,6 +45,9 @@ export default function Controls({
 
                                           // Wait for 3 seconds, then update the game text again
                                           if (goblinHealth <= 0) {
+                                                // add new potion to brians inventory
+                                                const potionGained = handlePotion(brian, setBrian)
+
                                                 // Increment goblin index safely
                                                 setGoblinIdx((prevIdx) => {
                                                       const nextGoblinIdx =
@@ -51,6 +57,8 @@ export default function Controls({
                                                                   nextGoblinIdx
                                                             ],
                                                       });
+
+                                                      setGameText(`You found a ${potionGained} potion!`)
 
                                                       // Announce next opponent after delay
                                                       setTimeout(() => {
