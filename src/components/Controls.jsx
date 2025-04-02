@@ -46,19 +46,37 @@ export default function Controls({
                                           // Wait for 3 seconds, then update the game text again
                                           if (goblinHealth <= 0) {
                                                 // add new potion to brians inventory
-                                                const potionGained = handlePotion(brian, setBrian)
+                                                const potionGained =
+                                                      handlePotion(
+                                                            brian,
+                                                            setBrian
+                                                      );
 
                                                 // Increment goblin index safely
                                                 setGoblinIdx((prevIdx) => {
                                                       const nextGoblinIdx =
                                                             prevIdx + 1;
+
+                                                      // **Victory Check** - If all goblins are defeated, redirect to victory page
+                                                      if (
+                                                            nextGoblinIdx >=
+                                                            goblins.length
+                                                      ) {
+                                                            navigate(
+                                                                  "/victory"
+                                                            );
+                                                            return prevIdx; // Prevents unnecessary state updates after redirect
+                                                      }
+                                                      
                                                       setGoblin({
                                                             ...goblins[
                                                                   nextGoblinIdx
                                                             ],
                                                       });
 
-                                                      setGameText(`You found a ${potionGained} potion!`)
+                                                      setGameText(
+                                                            `You found a ${potionGained} potion!`
+                                                      );
 
                                                       // Announce next opponent after delay
                                                       setTimeout(() => {
