@@ -87,7 +87,7 @@ export default function handleUsePotion (brian, color) {
             return vals;
       } else if (color === "orange") {
             const strength = [];
-            const potionsLeft = brian.potions.orange;
+            let potionsLeft = brian.potions.orange;
 
             if(brian.potions.orange <= 0) {
                   const vals = {
