@@ -6,9 +6,7 @@ import BrianContainer from "./BrianContainer";
 import Controls from "./Controls";
 import TextContainer from "./TextContainer";
 import {
-      goblinTurn,
       handleAttack,
-      handlePotion,
       handleUsePotion,
 } from "../lib";
 import { fetchGoblin, handleBrianOptions, handleGoblinTurn } from "../utils";
@@ -137,13 +135,14 @@ export default function Game() {
                               setIsActive={setIsActive}
                               setGameText={setGameText}
                               handleAttack={handleAttack}
-                              handleUsePotion={handleUsePotion}
                               brian={brian}
                               goblin={goblin}
-                              setBrian={setBrian}
                               setGoblin={setGoblin}
                               setIsAvailable={setIsAvailable}
                               setGoblinActive={setGoblinActive}
+                              setGoblinIdx={setGoblinIdx}
+                              goblinIdx={goblinIdx}
+                              goblins={goblins}
                         />
                   </div>
             </div>

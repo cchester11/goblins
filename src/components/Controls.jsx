@@ -3,13 +3,14 @@ export default function Controls({
       setIsActive,
       setGameText,
       handleAttack,
-      handleUsePotion,
       brian,
       goblin,
-      setBrian,
       setGoblin,
       setIsAvailable,
       setGoblinActive,
+      setGoblinIdx,
+      goblinIdx,
+      goblins,
 }) {
       return (
             <div className="grid grid-cols-2 justify-between items-center align-middle border-2 border-amber-300 bg-gray-800 text-white rounded-xl p-5 shadow-lg m-3">
@@ -27,27 +28,56 @@ export default function Controls({
                                                 );
                                           // set goblin health and game text
                                           setGameText(text);
-                                          setGoblin({
-                                                ...goblin,
+                                          setGoblin((prevGoblin) => ({
+                                                ...prevGoblin,
                                                 health: goblinHealth,
-                                          });
+                                          }));
+
                                           // set isActive back to false
                                           setIsActive(false);
 
-                                          // conditional that houses the below logic
-                                          // checks if goblin is dead
-                                          // if goblin is dead, increment the goblinIdx state
                                           // also if goblin is dead, use handlePotion logic to add a potion to brians library
+                                          // handlePotion adds random potion to brians library
+                                          // setGameText to show that x potion has been added to brians library
+
+                                          // Wait for 3 seconds, then update the game text again
+                                          if (goblinHealth <= 0) {
+                                                // Increment goblin index safely
+                                                setGoblinIdx((prevIdx) => {
+                                                      const nextGoblinIdx =
+                                                            prevIdx + 1;
+                                                      setGoblin({
+                                                            ...goblins[
+                                                                  nextGoblinIdx
+                                                            ],
+                                                      });
+
+                                                      // Announce next opponent after delay
+                                                      setTimeout(() => {
+                                                            setGameText(
+                                                                  `Your next opponent is ${goblins[nextGoblinIdx].name}! Go forth and be victorious once more!`
+                                                            );
+
+                                                            setTimeout(() => {
+                                                                  setGameText(
+                                                                        "Click the Simulate button to simulate the goblin's attack!"
+                                                                  );
+                                                            }, 3000);
+                                                      }, 3000);
+
+                                                      return nextGoblinIdx;
+                                                });
+                                          } else {
+                                                // If goblin is alive, delay next action message
+                                                setTimeout(() => {
+                                                      setGameText(
+                                                            "Click the Simulate button to simulate the goblin's attack!"
+                                                      );
+                                                }, 3000);
+                                          }
 
                                           // make goblin active to allow goblin attack
                                           setGoblinActive(true);
-
-                                          // Wait for 3 seconds, then update the game text again
-                                          setTimeout(() => {
-                                                setGameText(
-                                                      "Click the Simulate button to simulate the goblin's attack!"
-                                                );
-                                          }, 3000);
                                     }
                               }}
                         >
@@ -64,7 +94,7 @@ export default function Controls({
                                           setGameText(
                                                 "Choose a Potion from Brian's library!"
                                           );
-                                          // use setPotion to toggle potionAvailable to true
+                                          // set isAvailable to true to allow potion to be clicked
                                           setIsAvailable(true);
                                           // set isActive back to false
                                           setIsActive(false);

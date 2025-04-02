@@ -6,7 +6,7 @@ export default function BrianContainer({
       setIsAvailable,
       handleUsePotion,
       setGameText,
-      setGoblinActive,
+      setGoblinActive
 }) {
       return (
             <div className="grid grid-cols-1 border-2 border-amber-300 bg-gray-800 text-white rounded-xl p-5 shadow-lg m-3">
