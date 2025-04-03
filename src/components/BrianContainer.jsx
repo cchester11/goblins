@@ -6,26 +6,45 @@ export default function BrianContainer({
       setIsAvailable,
       handleUsePotion,
       setGameText,
-      setGoblinActive
+      setGoblinActive,
 }) {
       return (
+            // master container
             <div className="grid grid-cols-1 border-2 border-amber-300 bg-gray-800 text-white rounded-xl p-5 shadow-lg m-3">
-                  <div className="flex justify-center">Brian</div>
-                  <div className="flex justify-center">
-                        <img
-                              src="/brian.png"
-                              alt="Brian"
-                              className="h-[60px] w-[60px]"
-                        />
+                  
+                  {/* container for brians information */}
+                  <div className="grid grid-cols-5">
+                        {/* container for Brians name, image and health */}
+                        <div className="col-span-4">
+                              {/* Brian name container */}
+                              <div className="flex justify-center">Brian</div>
+                              {/* Brian's image container */}
+                              <div className="flex justify-center">
+                                    <img
+                                          src="/brian.png"
+                                          alt="Brian"
+                                          className="h-[60px] w-[60px]"
+                                    />
+                              </div>
+                              {/* Brian's health container */}
+                              <div className="flex justify-center">
+                                    Health: {brian.health}
+                              </div>
+                        </div>
+                        {/* container for Brians weapon */}
+                        <div>
+                              Brians Weapon
+                        </div>
                   </div>
-                  <div className="flex justify-center">
-                        Health: {brian.health}
-                  </div>
+
                   {/* <div className="flex justify-center">
+                        <span className="p-2">Attack Values: </span>
                         {brian.strength.map((val) => (
-                              <p>{val}</p>
+                              <p className="p-2">{val}</p>
                         ))}
                   </div> */}
+
+                  {/* Brian's potions container */}
                   <div className="flex justify-center mt-4">
                         <div className="grid grid-cols-4 gap-6">
                               {["red", "green", "blue", "orange"].map(
