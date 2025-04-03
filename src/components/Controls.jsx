@@ -14,6 +14,8 @@ export default function Controls({
       setGoblinIdx,
       goblinIdx,
       goblins,
+      weaponIdx,
+      setWeaponIdx
 }) {
       return (
             <div className="grid grid-cols-2 justify-between items-center align-middle border-2 border-amber-300 bg-gray-800 text-white rounded-xl p-5 shadow-lg m-3">
@@ -27,7 +29,8 @@ export default function Controls({
                                           const { goblinHealth, text } =
                                                 handleAttack(
                                                       brian.strength,
-                                                      goblin
+                                                      goblin,
+                                                      weaponIdx
                                                 );
                                           // set goblin health and game text
                                           setGameText(text);
@@ -44,6 +47,8 @@ export default function Controls({
                                           // setGameText to show that x potion has been added to brians library
 
                                           // Wait for 3 seconds, then update the game text again
+                                          // TO DO
+                                          // increment and set new weaponIdx ✅
                                           if (goblinHealth <= 0) {
                                                 // add new potion to brians inventory
                                                 const potionGained =
@@ -67,6 +72,9 @@ export default function Controls({
                                                             );
                                                             return prevIdx; // Prevents unnecessary state updates after redirect
                                                       }
+
+                                                      // increment and set weaponIdx here
+                                                      setWeaponIdx(weaponIdx + 1);
                                                       
                                                       setGoblin({
                                                             ...goblins[

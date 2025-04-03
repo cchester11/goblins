@@ -71,7 +71,7 @@ export const weapons = [
             power: 18
       },
       {
-            namee: "Demon Slayer",
+            name: "Demon Slayer",
             image: "/weapon_4.png",
             power: 29
       }

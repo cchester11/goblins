@@ -1,3 +1,5 @@
+import { weapons } from "../data";
+
 // import Brians state and pass as props
 export default function BrianContainer({
       brian,
@@ -7,7 +9,12 @@ export default function BrianContainer({
       handleUsePotion,
       setGameText,
       setGoblinActive,
+      weaponIdx
 }) {
+      // TO DO
+      // import weapons object above ✅
+      // create a variable that represents the current weapon (ex: weapons[weaponIdx].image) ✅
+
       return (
             // master container
             <div className="grid grid-cols-1 border-2 border-amber-300 bg-gray-800 text-white rounded-xl p-5 shadow-lg m-3">
@@ -40,7 +47,9 @@ export default function BrianContainer({
                               <button type="button" className="cursor-pointer inline-flex flex-col items-center justify-center w-20 h-20 rounded-lg bg-gray-800 border-2 border-gray-700 hover:border-white transition-transform duration-200 hover:scale-105 active:scale-95 shadow-md"
                               >
                                     <img
-                                    src="/weapon_1.png"
+                                    // to do
+                                    // place above variable in the source 
+                                    src={weapons[weaponIdx].image || "/weapon_1.png"}
                                     alt="Brian's Weapon"
                                     className="h-[60px] w-[60px]"
                                     />

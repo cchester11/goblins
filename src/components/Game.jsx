@@ -127,6 +127,7 @@ export default function Game() {
                               handleUsePotion={handleUsePotion}
                               setGameText={setGameText}
                               setGoblinActive={setGoblinActive}
+                              weaponIdx={weaponIdx}
                         />
                         {/* text container */}
                         <TextContainer gameText={gameText} />
@@ -145,6 +146,8 @@ export default function Game() {
                               goblinIdx={goblinIdx}
                               goblins={goblins}
                               setBrian={setBrian}
+                              weaponIdx={weaponIdx}
+                              setWeaponIdx={setWeaponIdx}
                         />
                   </div>
             </div>
