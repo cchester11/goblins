@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { goblins, potions } from "../data";
 import EnemyContainer from "./EnemyContainer";
 import BrianContainer from "./BrianContainer";
-import Controls from "./Controls";
 import TextContainer from "./TextContainer";
 import { handleAttack, handleUsePotion } from "../lib";
 import { fetchGoblin, handleBrianOptions, handleGoblinTurn } from "../utils";
@@ -77,14 +76,6 @@ export default function Game() {
             fetchGoblin(goblins, setGoblin, goblinIdx);
 
             handleBrianOptions(setGameText, setIsActive);
-
-            // handleGoblinTurn(brian, goblin, setBrian, setGameText);
-
-            // conditional checks health of goblin and brian
-            // if brian is dead, end game
-            // if goblin is dead, increment goblinIdx 1 and go back to function 1
-
-            // reiterate 2 and 3 and then conditional
       };
 
       // useEffect to start the game; use empty array as second parameter to ensure the useEffect only occurs on mount
@@ -123,38 +114,30 @@ export default function Game() {
                         <BrianContainer
                               brian={brian}
                               setBrian={setBrian}
+                              goblin={goblin}
+                              setGoblin={setGoblin}
+                              goblins={goblins}
+                              goblinIdx={goblinIdx}
+                              setGoblinIdx={setGoblinIdx}
+                              goblinActive={goblinActive}
+                              setGoblinActive={setGoblinActive}
+                              
+                              isActive={isActive}
+                              setIsActive={setIsActive}
                               isAvailable={isAvailable}
                               setIsAvailable={setIsAvailable}
-                              handleUsePotion={handleUsePotion}
-                              setGameText={setGameText}
-                              setGoblinActive={setGoblinActive}
+                              
                               weaponIdx={weaponIdx}
+                              setWeaponIdx={setWeaponIdx}
+                              
+                              setGameText={setGameText}
+                              handleAttack={handleAttack}
+                              handleUsePotion={handleUsePotion}
                         />
 
                         {/* Text Container (Full Width on Mobile) */}
                         <div className="col-span-1 md:col-span-2">
                               <TextContainer gameText={gameText} />
-                        </div>
-
-                        {/* Controls (Full Width on Mobile) */}
-                        <div className="col-span-1 md:col-span-2">
-                              <Controls
-                                    isActive={isActive}
-                                    setIsActive={setIsActive}
-                                    setGameText={setGameText}
-                                    handleAttack={handleAttack}
-                                    brian={brian}
-                                    goblin={goblin}
-                                    setGoblin={setGoblin}
-                                    setIsAvailable={setIsAvailable}
-                                    setGoblinActive={setGoblinActive}
-                                    setGoblinIdx={setGoblinIdx}
-                                    goblinIdx={goblinIdx}
-                                    goblins={goblins}
-                                    setBrian={setBrian}
-                                    weaponIdx={weaponIdx}
-                                    setWeaponIdx={setWeaponIdx}
-                              />
                         </div>
                   </div>
             </div>
