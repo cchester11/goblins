@@ -53,3 +53,26 @@ export const potions = [
             points: 20
       }
 ];
+
+export const weapons = [
+      {
+            name: "Hun Hacker",
+            image: "/weapon_1.png",
+            power: 5
+      }, 
+      {
+            name: "Wasp Sting",
+            image: "/weapon_2.png",
+            power: 8
+      },
+      {
+            name: "Flame of the Mark",
+            image: "/weapon_3.png",
+            power: 12
+      },
+      {
+            namee: "Demon Slayer",
+            image: "/weapon_4.png",
+            power: 15
+      }
+];

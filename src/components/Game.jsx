@@ -34,15 +34,15 @@ export default function Game() {
       });
 
       // goblin index is a number that increments each time a goblin is defeated; it will be used to fetch the corresponding goblin object in the goblins array
-      let [goblinIdx, setGoblinIdx] = useState(0);
+      let [goblinIdx, setGoblinIdx] = useState(0); 
+
+      // mirrors the index of the current weapon so that after each victory the next weapon is loaded
+      let [weaponIdx, setWeaponIdx] = useState(0);
 
       // isActive will be passed to components to ensure that the game runs in a cyclical fashion
       let [isActive, setIsActive] = useState(false);
 
-      // setPotion will be passed to controls which will set potionChoice to true
-      // then the user will need to click a potion button
-      // the chosen button will have a value that can set potionChoice.selection
-      // this will be passed back to handleUsePotion
+      // isAvailable is passed to contorls which toggles to true if user chooses to select a potion for turn
       let [isAvailable, setIsAvailable] = useState(false);
 
       let [goblinActive, setGoblinActive] = useState(false);
