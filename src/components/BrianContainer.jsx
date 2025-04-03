@@ -18,6 +18,7 @@ export default function BrianContainer({
       return (
             // master container
             <div className="grid grid-cols-1 border-2 border-amber-300 bg-gray-800 text-white rounded-xl p-5 shadow-lg m-3">
+                  
                   {/* container for brians information */}
                   <div className="grid grid-cols-5">
                         {/* container for Brians name, image and health */}
@@ -42,6 +43,7 @@ export default function BrianContainer({
                                     </div>
                               </div>
                         </div>
+                        
                         {/* container for Brians weapon */}
                         <div className="flex items-center">
                               <button type="button" className="cursor-pointer inline-flex flex-col items-center justify-center w-20 h-20 rounded-lg bg-gray-800 border-2 border-gray-700 hover:border-white transition-transform duration-200 hover:scale-105 active:scale-95 shadow-md"
