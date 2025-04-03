@@ -74,5 +74,10 @@ export const weapons = [
             name: "Demon Slayer",
             image: "/weapon_4.png",
             power: 29
+      },
+      {
+            name: "Balrog Destroyer",
+            image: "/weapon_5.png",
+            power: 34
       }
 ];

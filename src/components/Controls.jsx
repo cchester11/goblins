@@ -1,4 +1,5 @@
 import { handlePotion } from "../lib";
+import { weapons } from "../data";
 
 export default function Controls({
       isActive,
@@ -89,14 +90,14 @@ export default function Controls({
                                                       // Announce next opponent after delay
                                                       setTimeout(() => {
                                                             setGameText(
-                                                                  `Your next opponent is ${goblins[nextGoblinIdx].name}! Go forth and be victorious once more!`
+                                                                  `Your next opponent is ${goblins[nextGoblinIdx].name}! Go forth and be victorious once more! You've been awarded a new weapon called ${weapons[weaponIdx].name}!!`
                                                             );
 
                                                             setTimeout(() => {
                                                                   setGameText(
                                                                         "Click the Simulate button to simulate the goblin's attack!"
                                                                   );
-                                                            }, 3000);
+                                                            }, 5000);
                                                       }, 3000);
 
                                                       return nextGoblinIdx;
