@@ -58,21 +58,21 @@ export const weapons = [
       {
             name: "Hun Hacker",
             image: "/weapon_1.png",
-            power: 5
+            power: 10
       }, 
       {
             name: "Wasp Sting",
             image: "/weapon_2.png",
-            power: 8
+            power: 15
       },
       {
             name: "Flame of the Mark",
             image: "/weapon_3.png",
-            power: 12
+            power: 18
       },
       {
             namee: "Demon Slayer",
             image: "/weapon_4.png",
-            power: 15
+            power: 29
       }
 ];
