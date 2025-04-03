@@ -37,7 +37,14 @@ export default function BrianContainer({
                         </div>
                         {/* container for Brians weapon */}
                         <div className="flex items-center">
-                              Brians Weapon
+                              <button type="button" className="cursor-pointer inline-flex flex-col items-center justify-center w-20 h-20 rounded-lg bg-gray-800 border-2 border-gray-700 hover:border-white transition-transform duration-200 hover:scale-105 active:scale-95 shadow-md"
+                              >
+                                    <img
+                                    src="/weapon_1.png"
+                                    alt="Brian's Weapon"
+                                    className="h-[60px] w-[60px]"
+                                    />
+                              </button>
                         </div>
                   </div>
 
