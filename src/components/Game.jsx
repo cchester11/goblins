@@ -109,6 +109,7 @@ export default function Game() {
                   <div className="h-screen w-screen p-10 grid grid-cols-2 text-white text-lg">
                         {/* enemy container */}
                         <EnemyContainer
+                              goblinIdx={goblinIdx}
                               goblin={goblin}
                               goblinActive={goblinActive}
                               setGoblinActive={setGoblinActive}
