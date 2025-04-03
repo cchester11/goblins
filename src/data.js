@@ -26,7 +26,7 @@ export const goblins = [
       {
             name: "Balrog Tamer, Gorak",
             health: 99,
-            strength: [11, 18, 22],
+            strength: [11, 12, 18],
             image: "goblin_5.png"
       }
 ]
