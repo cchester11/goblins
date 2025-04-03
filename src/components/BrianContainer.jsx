@@ -66,13 +66,13 @@ export default function BrianContainer({
 
                   {/* Brian's potions container */}
                   <div className="flex justify-center mt-4">
-                        <div className="grid grid-cols-4 gap-6">
+                        <div className="flex flex-wrap gap-6 justify-center w-full">
                               {["red", "green", "blue", "orange"].map(
                                     (color) => (
                                           <button
                                                 key={color}
                                                 type="button"
-                                                className="cursor-pointer inline-flex flex-col items-center justify-center w-20 h-20 rounded-lg bg-gray-800 border-2 border-gray-700 hover:border-white transition-transform duration-200 hover:scale-105 active:scale-95 shadow-md"
+                                                className="cursor-pointer inline-flex flex-col items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-lg bg-gray-800 border-2 border-gray-700 hover:border-white transition-transform duration-200 hover:scale-105 active:scale-95 shadow-md"
                                                 onClick={() => {
                                                       if (isAvailable) {
                                                             const {
@@ -121,7 +121,7 @@ export default function BrianContainer({
                                                 <img
                                                       src={`/potion_${color}.png`}
                                                       alt={`${color} potion`}
-                                                      className="h-12 w-12 transition-all duration-200 hover:drop-shadow-md"
+                                                      className="h-10 w-10 md:h-12 md:w-12 transition-all duration-200 hover:drop-shadow-md"
                                                 />
                                                 <span className="text-sm font-medium mt-1">
                                                       {brian.potions?.[color] ??

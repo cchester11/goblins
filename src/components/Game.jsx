@@ -5,10 +5,7 @@ import EnemyContainer from "./EnemyContainer";
 import BrianContainer from "./BrianContainer";
 import Controls from "./Controls";
 import TextContainer from "./TextContainer";
-import {
-      handleAttack,
-      handleUsePotion,
-} from "../lib";
+import { handleAttack, handleUsePotion } from "../lib";
 import { fetchGoblin, handleBrianOptions, handleGoblinTurn } from "../utils";
 
 export default function Game() {
@@ -34,7 +31,7 @@ export default function Game() {
       });
 
       // goblin index is a number that increments each time a goblin is defeated; it will be used to fetch the corresponding goblin object in the goblins array
-      let [goblinIdx, setGoblinIdx] = useState(0); 
+      let [goblinIdx, setGoblinIdx] = useState(0);
 
       // mirrors the index of the current weapon so that after each victory the next weapon is loaded
       let [weaponIdx, setWeaponIdx] = useState(0);
@@ -96,18 +93,21 @@ export default function Game() {
       }, []);
 
       return (
-            <div>
-                  <div className="ml-4 mb-4 mt-4">
+            <div className="min-h-screen w-full p-4 md:p-10">
+                  {/* Home Button */}
+                  <div className="ml-2 mb-4 mt-2">
                         <button
                               type="button"
-                              className="bg-amber-400 text-sm text-white hover:bg-amber-200 p-3 rounded-xl outline-2 outline-offset-2 outline-blue-500"
+                              className="bg-amber-400 text-sm text-white hover:bg-amber-200 px-4 py-2 rounded-xl outline-2 outline-offset-2 outline-blue-500"
                               onClick={() => navigate("/")}
                         >
                               Home
                         </button>
                   </div>
-                  <div className="h-screen w-screen p-10 grid grid-cols-2 text-white text-lg">
-                        {/* enemy container */}
+
+                  {/* Game Layout */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-white text-lg">
+                        {/* Enemy Container */}
                         <EnemyContainer
                               goblinIdx={goblinIdx}
                               goblin={goblin}
@@ -118,7 +118,8 @@ export default function Game() {
                               setGameText={setGameText}
                               setIsActive={setIsActive}
                         />
-                        {/* brian container */}
+
+                        {/* Brian Container */}
                         <BrianContainer
                               brian={brian}
                               setBrian={setBrian}
@@ -129,26 +130,32 @@ export default function Game() {
                               setGoblinActive={setGoblinActive}
                               weaponIdx={weaponIdx}
                         />
-                        {/* text container */}
-                        <TextContainer gameText={gameText} />
-                        {/* brians controls container */}
-                        <Controls
-                              isActive={isActive}
-                              setIsActive={setIsActive}
-                              setGameText={setGameText}
-                              handleAttack={handleAttack}
-                              brian={brian}
-                              goblin={goblin}
-                              setGoblin={setGoblin}
-                              setIsAvailable={setIsAvailable}
-                              setGoblinActive={setGoblinActive}
-                              setGoblinIdx={setGoblinIdx}
-                              goblinIdx={goblinIdx}
-                              goblins={goblins}
-                              setBrian={setBrian}
-                              weaponIdx={weaponIdx}
-                              setWeaponIdx={setWeaponIdx}
-                        />
+
+                        {/* Text Container (Full Width on Mobile) */}
+                        <div className="col-span-1 md:col-span-2">
+                              <TextContainer gameText={gameText} />
+                        </div>
+
+                        {/* Controls (Full Width on Mobile) */}
+                        <div className="col-span-1 md:col-span-2">
+                              <Controls
+                                    isActive={isActive}
+                                    setIsActive={setIsActive}
+                                    setGameText={setGameText}
+                                    handleAttack={handleAttack}
+                                    brian={brian}
+                                    goblin={goblin}
+                                    setGoblin={setGoblin}
+                                    setIsAvailable={setIsAvailable}
+                                    setGoblinActive={setGoblinActive}
+                                    setGoblinIdx={setGoblinIdx}
+                                    goblinIdx={goblinIdx}
+                                    goblins={goblins}
+                                    setBrian={setBrian}
+                                    weaponIdx={weaponIdx}
+                                    setWeaponIdx={setWeaponIdx}
+                              />
+                        </div>
                   </div>
             </div>
       );
