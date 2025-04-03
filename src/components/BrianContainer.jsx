@@ -11,28 +11,32 @@ export default function BrianContainer({
       return (
             // master container
             <div className="grid grid-cols-1 border-2 border-amber-300 bg-gray-800 text-white rounded-xl p-5 shadow-lg m-3">
-                  
                   {/* container for brians information */}
                   <div className="grid grid-cols-5">
                         {/* container for Brians name, image and health */}
                         <div className="col-span-4">
-                              {/* Brian name container */}
-                              <div className="flex justify-center">Brian</div>
-                              {/* Brian's image container */}
-                              <div className="flex justify-center">
-                                    <img
-                                          src="/brian.png"
-                                          alt="Brian"
-                                          className="h-[60px] w-[60px]"
-                                    />
-                              </div>
-                              {/* Brian's health container */}
-                              <div className="flex justify-center">
-                                    Health: {brian.health}
+                              {/* sub container for name, health and image */}
+                              <div className="grid grid-rows-3 justify-center h-full items-center">
+                                    {/* Brian name container */}
+                                    <div className="flex justify-center">
+                                          Brian
+                                    </div>
+                                    {/* Brian's image container */}
+                                    <div className="flex justify-center">
+                                          <img
+                                                src="/brian.png"
+                                                alt="Brian"
+                                                className="h-[60px] w-[60px]"
+                                          />
+                                    </div>
+                                    {/* Brian's health container */}
+                                    <div className="flex justify-center">
+                                          Health: {brian.health}
+                                    </div>
                               </div>
                         </div>
                         {/* container for Brians weapon */}
-                        <div>
+                        <div className="flex items-center">
                               Brians Weapon
                         </div>
                   </div>
