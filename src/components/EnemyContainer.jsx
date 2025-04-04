@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { handleGoblinTurn } from "../utils";
 import { endGame } from "../lib";
+import { goblins } from "../data";
 
 export default function EnemyContainer({
       brian,
@@ -10,19 +11,24 @@ export default function EnemyContainer({
       goblinActive,
       setGoblinActive,
       setIsActive,
-      goblinIdx
+      goblinIdx,
 }) {
       const navigate = useNavigate();
       const level = goblinIdx + 1;
+      const maxHealth = goblins[goblinIdx].health;
 
       return (
+            // master container
             <div className="grid grid-cols-1 border-2 border-amber-300 bg-gray-800 text-white rounded-xl p-5 shadow-lg m-3">
+                  {/* Level Container */}
                   <div className="flex justify-center text-2xl">
                         {"Level: " + level}
                   </div>
+                  {/* Goblins Name */}
                   <div className="flex justify-center">
                         {goblin.name || "Goblin Name"}
                   </div>
+                  {/* Goblins Image */}
                   <div className="flex justify-center">
                         <img
                               src={goblin.image || "/goblin_1.png"}
@@ -30,9 +36,21 @@ export default function EnemyContainer({
                               className="h-[60px] w-[60px]"
                         />
                   </div>
-                  <div className="flex justify-center">
-                        Goblin Health: {goblin.health}
+                  {/* Goblins Health Bar */}
+                  <div className="flex justify-center items-center">
+                        <div className="w-2/16 bg-red-600 rounded-full h-1.5 overflow-hidden">
+                              <div
+                                    className="bg-green-600 h-1.5 rounded-full"
+                                    style={{
+                                          width: `${
+                                                (goblin.health / maxHealth) *
+                                                100
+                                          }%`,
+                                    }}
+                              ></div>
+                        </div>
                   </div>
+                  {/* Simulate Goblin Attack */}
                   <div className="grid grid-cols-1 m-3 justify-between items-center align-middle">
                         <div className="flex justify-center">
                               <button

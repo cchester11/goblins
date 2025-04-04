@@ -155,8 +155,13 @@ export default function BrianContainer({
                                           />
                                     </div>
                                     {/* Brian's health container */}
-                                    <div className="flex justify-center">
-                                          Health: {brian.health}
+                                    <div className="w-full bg-red-600 rounded-full h-1.5 overflow-hidden">
+                                          <div
+                                                className="bg-green-600 h-1.5 rounded-full"
+                                                style={{
+                                                      width: `${brian.health}%`,
+                                                }}
+                                          ></div>
                                     </div>
                               </div>
                         </div>
@@ -184,9 +189,7 @@ export default function BrianContainer({
                         </div>
 
                         {/* container for Brians weapon */}
-                        <div>
-                              {/* dummy div */}
-                        </div>
+                        <div>{/* dummy div */}</div>
                         <div className="flex items-center justify-center">
                               <button
                                     type="button"
