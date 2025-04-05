@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { weapons } from "../data";
 import { handlePotion } from "../lib";
 
@@ -8,9 +9,7 @@ export default function BrianContainer({
       goblin,
       setGoblin,
       goblins,
-      goblinIdx,
       setGoblinIdx,
-      goblinActive,
       setGoblinActive,
       isActive,
       setIsActive,
@@ -22,9 +21,7 @@ export default function BrianContainer({
       handleAttack,
       handleUsePotion,
 }) {
-      // TO DO
-      // import weapons object above ✅
-      // create a variable that represents the current weapon (ex: weapons[weaponIdx].image) ✅
+      const navigate = useNavigate();
 
       return (
             // master container

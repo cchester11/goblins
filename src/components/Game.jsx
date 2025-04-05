@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { goblins, potions } from "../data";
+import { goblins } from "../data";
 import EnemyContainer from "./EnemyContainer";
 import BrianContainer from "./BrianContainer";
 import TextContainer from "./TextContainer";
 import { handleAttack, handleUsePotion } from "../lib";
-import { fetchGoblin, handleBrianOptions, handleGoblinTurn } from "../utils";
+import { fetchGoblin, handleBrianOptions } from "../utils";
 
 export default function Game() {
       const navigate = useNavigate();
