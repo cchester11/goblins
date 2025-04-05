@@ -46,6 +46,13 @@ export default function Game() {
       // Game text
       let [gameText, setGameText] = useState("");
 
+      // buttonFlicker 
+      let [buttonFlicker, setButtonFlicker] = useState({
+            attack_potion: false,
+            goblin: false,
+            potion_choice: false
+      })
+
       // showIntroMessages function
       const showIntroMessages = () => {
             setTimeout(() => {
@@ -75,7 +82,7 @@ export default function Game() {
       const startGame = () => {
             fetchGoblin(goblins, setGoblin, goblinIdx);
 
-            handleBrianOptions(setGameText, setIsActive);
+            handleBrianOptions(setGameText, setIsActive, setButtonFlicker);
       };
 
       // useEffect to start the game; use empty array as second parameter to ensure the useEffect only occurs on mount
@@ -108,6 +115,8 @@ export default function Game() {
                               setBrian={setBrian}
                               setGameText={setGameText}
                               setIsActive={setIsActive}
+                              buttonFlicker={buttonFlicker}
+                              setButtonFlicker={setButtonFlicker}
                         />
 
                         {/* Brian Container */}
@@ -126,6 +135,8 @@ export default function Game() {
                               setIsActive={setIsActive}
                               isAvailable={isAvailable}
                               setIsAvailable={setIsAvailable}
+                              buttonFlicker={buttonFlicker}
+                              setButtonFlicker={setButtonFlicker}
                               
                               weaponIdx={weaponIdx}
                               setWeaponIdx={setWeaponIdx}

@@ -12,6 +12,8 @@ export default function EnemyContainer({
       setGoblinActive,
       setIsActive,
       goblinIdx,
+      buttonFlicker,
+      setButtonFlicker
 }) {
       const navigate = useNavigate();
       const level = goblinIdx + 1;
@@ -55,7 +57,7 @@ export default function EnemyContainer({
                         <div className="flex justify-center">
                               <button
                                     type="button"
-                                    className="bg-amber-400 text-sm text-white hover:bg-amber-200 p-3 rounded-xl outline-2 outline-offset-2 outline-blue-500"
+                                    className={`bg-amber-400 text-sm text-white hover:bg-amber-200 p-3 rounded-xl outline-2 outline-offset-2 outline-blue-500 ${buttonFlicker.goblin ? "flicker" : ""}`}
                                     onClick={() => {
                                           if (goblinActive) {
                                                 handleGoblinTurn(
@@ -66,6 +68,13 @@ export default function EnemyContainer({
                                                 );
 
                                                 setGoblinActive(false);
+
+                                                // change buttonFlicker state
+                                                setButtonFlicker((prev) => ({
+                                                      ...prev,
+                                                      goblin: false,
+                                                      attack_potion: true
+                                                }))
 
                                                 // conditional here that checks health of brian
                                                 // if brian is dead, end game

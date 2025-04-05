@@ -20,6 +20,8 @@ export default function BrianContainer({
       setGameText,
       handleAttack,
       handleUsePotion,
+      buttonFlicker,
+      setButtonFlicker
 }) {
       const navigate = useNavigate();
 
@@ -32,7 +34,7 @@ export default function BrianContainer({
                         <div className="flex h-8  md:h-12 justify-center items-center">
                               <button
                                     type="button"
-                                    className="bg-amber-400 text-sm text-white hover:bg-amber-200 p-3 rounded-xl outline-2 outline-offset-2 outline-blue-500"
+                                    className={`bg-amber-400 text-sm text-white hover:bg-amber-200 p-3 rounded-xl outline-2 outline-offset-2 outline-blue-500 ${buttonFlicker.attack_potion ? "flicker" : ""}`}
                                     onClick={() => {
                                           if (isActive) {
                                                 // handleAttack
@@ -51,6 +53,13 @@ export default function BrianContainer({
 
                                                 // set isActive back to false
                                                 setIsActive(false);
+
+                                                // change buttonFlicker state
+                                                setButtonFlicker((prev) => ({
+                                                      ...prev,
+                                                      attack_potion: false,
+                                                      goblin: true
+                                                }))
 
                                                 // Wait for 3 seconds, then update the game text again
                                                 if (goblinHealth <= 0) {
@@ -167,7 +176,7 @@ export default function BrianContainer({
                         <div className="flex justify-center h-8 md:h-12 items-center">
                               <button
                                     type="button"
-                                    className="bg-amber-400 text-sm text-white hover:bg-amber-200 p-3 rounded-xl outline-2 outline-offset-2 outline-blue-500"
+                                    className={`bg-amber-400 text-sm text-white hover:bg-amber-200 p-3 rounded-xl outline-2 outline-offset-2 outline-blue-500 ${buttonFlicker.attack_potion ? "flicker": ""}`}
                                     onClick={() => {
                                           if (isActive) {
                                                 // setGameText to "choose one of Brians potions!"
@@ -178,6 +187,13 @@ export default function BrianContainer({
                                                 setIsAvailable(true);
                                                 // set isActive back to false
                                                 setIsActive(false);
+
+                                                // change buttonFlicker state
+                                                setButtonFlicker((prev) => ({
+                                                      ...prev,
+                                                      attack_potion: false,
+                                                      potion_choice: true
+                                                }))
                                           }
                                     }}
                               >
@@ -214,7 +230,7 @@ export default function BrianContainer({
                                           <button
                                                 key={color}
                                                 type="button"
-                                                className="cursor-pointer inline-flex flex-col items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-lg bg-gray-800 border-2 border-gray-700 hover:border-white transition-transform duration-200 hover:scale-105 active:scale-95 shadow-md"
+                                                className={`cursor-pointer inline-flex flex-col items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-lg bg-gray-800 border-2 border-gray-700 hover:border-white transition-transform duration-200 hover:scale-105 active:scale-95 shadow-md ${buttonFlicker.potion_choice ? "flicker": ""}`}
                                                 onClick={() => {
                                                       if (isAvailable) {
                                                             const {
@@ -246,6 +262,13 @@ export default function BrianContainer({
                                                             setIsAvailable(
                                                                   false
                                                             );
+
+                                                            // change buttonFlicker state
+                                                            setButtonFlicker((prev) => ({
+                                                                  ...prev,
+                                                                  potion_choice: false,
+                                                                  goblin: true
+                                                            }))
 
                                                             setGoblinActive(
                                                                   true
